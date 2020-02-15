@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    username: postgres
+    password: robert
+    url: jdbc:postgresql://localhost:5432/robert
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+configuration:
+  log-impl=org:
+    apache:
+      ibatis:
+        logging:
+          stdout:
+            StdOutImpl:

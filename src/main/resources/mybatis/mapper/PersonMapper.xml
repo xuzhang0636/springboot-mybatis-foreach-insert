@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xuzhang.springbootmybatisforeachinsert.mapper.PersonMapper">
+    <insert id="insertPersons">
+        insert into person(name, age)
+        values
+        <foreach collection="persons" item="item" separator=",">
+            (#{item.name},#{item.age})
+        </foreach>
+    </insert>
+    <select id="getPersons" resultType="com.xuzhang.springbootmybatisforeachinsert.model.Person">
+        select * from person
+    </select>
+    <select id="getPersonByIds" resultType="com.xuzhang.springbootmybatisforeachinsert.model.Person">
+        select person_id as personId, name as name , age as age from person where person_id in
+        <foreach collection="ids" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
