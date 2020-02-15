@@ -1,0 +1,1 @@
+# One example to test the Mybatis foreach insert and query
